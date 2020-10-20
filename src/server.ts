@@ -37,10 +37,32 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
   // endpoint to filter an image from a public url.
   app.get( "/filteredimage", async ( req: Request, res: Response ) => {
     const { image_url }: { image_url: string } = req.query;
+
+    // Validate the image_url query parameter
     if (!image_url) {
       return res.status(400).send({ message: "The query parameter `image_url` is required"});
     } 
-    res.send("Got query");
+
+    // Filter the image
+    filterImageFromURL(image_url)
+      .then(path => {
+        const filteredImagePath: string = path;
+        // Send the filtered image
+        res.status(200).sendFile(filteredImagePath, err => {
+          // Delete the file on the server after sending the file
+          if (err) {
+            return res.status(400).send( { message: err })
+          }
+          else {
+            deleteLocalFiles([path]);
+          }
+        });
+      })
+      .catch(error => {
+        // Return error message for caught errors
+        return res.status(422).send( { message: error } );
+      }); 
+    
   });
   
   // Root Endpoint

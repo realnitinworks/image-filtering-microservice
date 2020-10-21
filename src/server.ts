@@ -45,16 +45,15 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
 
     // Filter the image
     filterImageFromURL(image_url)
-      .then(path => {
-        const filteredImagePath: string = path;
-        // Send the filtered image
+      .then(filteredImagePath => {
+        // Send the resulting file in the response
         res.status(200).sendFile(filteredImagePath, err => {
           // Delete the file on the server after sending the file
           if (err) {
             return res.status(400).send( { message: err })
           }
           else {
-            deleteLocalFiles([path]);
+            deleteLocalFiles([filteredImagePath]);
           }
         });
       })

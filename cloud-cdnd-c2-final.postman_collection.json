@@ -10,6 +10,29 @@
 			"item": [
 				{
 					"name": "Valid URL",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ab46edbf-f482-4b51-a191-2340f86c65fb",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Content-Type is image\", function () {",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('image/jpeg');",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -44,6 +67,28 @@
 				},
 				{
 					"name": "Another Valid URL",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "670f04ed-3904-4a7d-b491-233fdd11dcb8",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Content-Type is image\", function () {",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('image/jpeg');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -78,6 +123,20 @@
 				},
 				{
 					"name": "Root Endpoint",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "46797571-c6e7-44ce-bf6c-d9974dbb568c",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -107,6 +166,25 @@
 				},
 				{
 					"name": "Unreachable URL",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7a30678b-4d5c-4546-9f80-64a8296a0cf8",
+								"exec": [
+									"pm.test(\"Status code is 422\", function () {",
+									"    pm.response.to.have.status(422);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Image filtering failed\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -141,6 +219,24 @@
 				},
 				{
 					"name": "No image_url supplied",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4bd14498-3a57-4c20-8a17-6618f2b0f342",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"The query parameter `image_url` is required\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -170,6 +266,24 @@
 				},
 				{
 					"name": "Invalid query parameter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "313007ef-7785-4134-98fb-94fbd6a06fbc",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"The query parameter `image_url` is required\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -205,6 +319,24 @@
 				},
 				{
 					"name": "No Authorization Header",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4270f5f1-c050-4b77-8b9b-26b03ecb38c9",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"No authorization headers\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "noauth"
@@ -232,6 +364,24 @@
 				},
 				{
 					"name": "Invalid Authorization Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2a05d00e-d467-48ae-8f98-881e96e25dd9",
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Failed to authenticate\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -295,6 +445,28 @@
 			"item": [
 				{
 					"name": "Valid URL",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9275acf9-ce22-4646-9362-d35f6a940713",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Content-Type is image\", function () {",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('image/jpeg');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -309,13 +481,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://udagram-image-filt-microservice-prod.ap-south-1.elasticbeanstalk.com/filteredimage?image_url=https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_tabby_and_white_kitten_n01.jpg",
+							"raw": "http://{{EB_URL}}/filteredimage?image_url=https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_tabby_and_white_kitten_n01.jpg",
 							"protocol": "http",
 							"host": [
-								"udagram-image-filt-microservice-prod",
-								"ap-south-1",
-								"elasticbeanstalk",
-								"com"
+								"{{EB_URL}}"
 							],
 							"path": [
 								"filteredimage"
@@ -332,6 +501,28 @@
 				},
 				{
 					"name": "Another Valid URL",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "60d0bdc3-f800-47c3-b798-9ef973c70eec",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Content-Type is image\", function () {",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('image/jpeg');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -346,13 +537,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://udagram-image-filt-microservice-prod.ap-south-1.elasticbeanstalk.com/filteredimage?image_url=https://images.unsplash.com/photo-1536516677467-a8cf206e1066",
+							"raw": "http://{{EB_URL}}/filteredimage?image_url=https://images.unsplash.com/photo-1536516677467-a8cf206e1066",
 							"protocol": "http",
 							"host": [
-								"udagram-image-filt-microservice-prod",
-								"ap-south-1",
-								"elasticbeanstalk",
-								"com"
+								"{{EB_URL}}"
 							],
 							"path": [
 								"filteredimage"
@@ -369,17 +557,28 @@
 				},
 				{
 					"name": "Root Endpoint",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3a7c11de-d832-4caf-8755-781b5cdf6c17",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://udagram-image-filt-microservice-prod.ap-south-1.elasticbeanstalk.com/",
+							"raw": "http://{{EB_URL}}/",
 							"protocol": "http",
 							"host": [
-								"udagram-image-filt-microservice-prod",
-								"ap-south-1",
-								"elasticbeanstalk",
-								"com"
+								"{{EB_URL}}"
 							],
 							"path": [
 								""
@@ -391,6 +590,25 @@
 				},
 				{
 					"name": "Unreachable URL",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9e670265-84c1-441c-8650-33bee4e4c392",
+								"exec": [
+									"pm.test(\"Status code is 422\", function () {",
+									"    pm.response.to.have.status(422);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Image filtering failed\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -405,13 +623,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://udagram-image-filt-microservice-prod.ap-south-1.elasticbeanstalk.com/filteredimage?image_url=https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg",
+							"raw": "http://{{EB_URL}}/filteredimage?image_url=https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg",
 							"protocol": "http",
 							"host": [
-								"udagram-image-filt-microservice-prod",
-								"ap-south-1",
-								"elasticbeanstalk",
-								"com"
+								"{{EB_URL}}"
 							],
 							"path": [
 								"filteredimage"
@@ -428,6 +643,24 @@
 				},
 				{
 					"name": "No image_url supplied",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "84181559-f5af-425c-8713-760d9ca85a6b",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"The query parameter `image_url` is required\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -442,13 +675,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://udagram-image-filt-microservice-prod.ap-south-1.elasticbeanstalk.com/filteredimage",
+							"raw": "http://{{EB_URL}}/filteredimage",
 							"protocol": "http",
 							"host": [
-								"udagram-image-filt-microservice-prod",
-								"ap-south-1",
-								"elasticbeanstalk",
-								"com"
+								"{{EB_URL}}"
 							],
 							"path": [
 								"filteredimage"
@@ -460,6 +690,24 @@
 				},
 				{
 					"name": "Invalid query parameter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "152c27e0-1ae2-4d74-92b8-b008201c37a4",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"The query parameter `image_url` is required\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -474,13 +722,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://udagram-image-filt-microservice-prod.ap-south-1.elasticbeanstalk.com/filteredimage?imageUrl=https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg",
+							"raw": "http://{{EB_URL}}/filteredimage?imageUrl=https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg",
 							"protocol": "http",
 							"host": [
-								"udagram-image-filt-microservice-prod",
-								"ap-south-1",
-								"elasticbeanstalk",
-								"com"
+								"{{EB_URL}}"
 							],
 							"path": [
 								"filteredimage"
@@ -498,17 +743,32 @@
 				},
 				{
 					"name": "No Authorization Header",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f4501b96-ad54-4e82-85ec-a9cdd083635b",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"No authorization headers\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://udagram-image-filt-microservice-prod.ap-south-1.elasticbeanstalk.com/filteredimage?image_url=https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_tabby_and_white_kitten_n01.jpg",
+							"raw": "http://{{EB_URL}}/filteredimage?image_url=https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_tabby_and_white_kitten_n01.jpg",
 							"protocol": "http",
 							"host": [
-								"udagram-image-filt-microservice-prod",
-								"ap-south-1",
-								"elasticbeanstalk",
-								"com"
+								"{{EB_URL}}"
 							],
 							"path": [
 								"filteredimage"
@@ -525,6 +785,24 @@
 				},
 				{
 					"name": "Invalid Athorization Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "596a3277-71e8-49b2-b676-e488aadcc3cd",
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Failed to authenticate\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -539,13 +817,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://udagram-image-filt-microservice-prod.ap-south-1.elasticbeanstalk.com/filteredimage?image_url=https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_tabby_and_white_kitten_n01.jpg",
+							"raw": "http://{{EB_URL}}/filteredimage?image_url=https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_tabby_and_white_kitten_n01.jpg",
 							"protocol": "http",
 							"host": [
-								"udagram-image-filt-microservice-prod",
-								"ap-south-1",
-								"elasticbeanstalk",
-								"com"
+								"{{EB_URL}}"
 							],
 							"path": [
 								"filteredimage"
@@ -611,9 +886,14 @@
 	],
 	"variable": [
 		{
-			"id": "4c1c0784-0f51-4007-aa49-5b333690a98a",
+			"id": "b2c5c3b3-e730-43e9-8081-ff573f26118c",
 			"key": "HOST",
 			"value": "localhost:8082"
+		},
+		{
+			"id": "89b9ec12-eca2-4231-8153-45b6ab66d3e6",
+			"key": "EB_URL",
+			"value": "udagram-image-filt-microservice-prod.ap-south-1.elasticbeanstalk.com"
 		}
 	],
 	"protocolProfileBehavior": {}

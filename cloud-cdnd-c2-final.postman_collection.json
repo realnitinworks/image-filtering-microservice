@@ -309,13 +309,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://udagram-image-filt-microservice-prod.ap-south-1.elasticbeanstalk.com/filteredimage?image_url=https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_tabby_and_white_kitten_n01.jpg",
+							"raw": "http://{{EB_URL}}/filteredimage?image_url=https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_tabby_and_white_kitten_n01.jpg",
 							"protocol": "http",
 							"host": [
-								"udagram-image-filt-microservice-prod",
-								"ap-south-1",
-								"elasticbeanstalk",
-								"com"
+								"{{EB_URL}}"
 							],
 							"path": [
 								"filteredimage"
@@ -346,13 +343,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://udagram-image-filt-microservice-prod.ap-south-1.elasticbeanstalk.com/filteredimage?image_url=https://images.unsplash.com/photo-1536516677467-a8cf206e1066",
+							"raw": "http://{{EB_URL}}/filteredimage?image_url=https://images.unsplash.com/photo-1536516677467-a8cf206e1066",
 							"protocol": "http",
 							"host": [
-								"udagram-image-filt-microservice-prod",
-								"ap-south-1",
-								"elasticbeanstalk",
-								"com"
+								"{{EB_URL}}"
 							],
 							"path": [
 								"filteredimage"
@@ -373,13 +367,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://udagram-image-filt-microservice-prod.ap-south-1.elasticbeanstalk.com/",
+							"raw": "http://{{EB_URL}}/",
 							"protocol": "http",
 							"host": [
-								"udagram-image-filt-microservice-prod",
-								"ap-south-1",
-								"elasticbeanstalk",
-								"com"
+								"{{EB_URL}}"
 							],
 							"path": [
 								""
@@ -405,13 +396,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://udagram-image-filt-microservice-prod.ap-south-1.elasticbeanstalk.com/filteredimage?image_url=https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg",
+							"raw": "http://{{EB_URL}}/filteredimage?image_url=https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg",
 							"protocol": "http",
 							"host": [
-								"udagram-image-filt-microservice-prod",
-								"ap-south-1",
-								"elasticbeanstalk",
-								"com"
+								"{{EB_URL}}"
 							],
 							"path": [
 								"filteredimage"
@@ -442,13 +430,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://udagram-image-filt-microservice-prod.ap-south-1.elasticbeanstalk.com/filteredimage",
+							"raw": "http://{{EB_URL}}/filteredimage",
 							"protocol": "http",
 							"host": [
-								"udagram-image-filt-microservice-prod",
-								"ap-south-1",
-								"elasticbeanstalk",
-								"com"
+								"{{EB_URL}}"
 							],
 							"path": [
 								"filteredimage"
@@ -474,13 +459,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://udagram-image-filt-microservice-prod.ap-south-1.elasticbeanstalk.com/filteredimage?imageUrl=https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg",
+							"raw": "http://{{EB_URL}}/filteredimage?imageUrl=https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg",
 							"protocol": "http",
 							"host": [
-								"udagram-image-filt-microservice-prod",
-								"ap-south-1",
-								"elasticbeanstalk",
-								"com"
+								"{{EB_URL}}"
 							],
 							"path": [
 								"filteredimage"
@@ -502,13 +484,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://udagram-image-filt-microservice-prod.ap-south-1.elasticbeanstalk.com/filteredimage?image_url=https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_tabby_and_white_kitten_n01.jpg",
+							"raw": "http://{{EB_URL}}/filteredimage?image_url=https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_tabby_and_white_kitten_n01.jpg",
 							"protocol": "http",
 							"host": [
-								"udagram-image-filt-microservice-prod",
-								"ap-south-1",
-								"elasticbeanstalk",
-								"com"
+								"{{EB_URL}}"
 							],
 							"path": [
 								"filteredimage"
@@ -539,13 +518,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://udagram-image-filt-microservice-prod.ap-south-1.elasticbeanstalk.com/filteredimage?image_url=https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_tabby_and_white_kitten_n01.jpg",
+							"raw": "http://{{EB_URL}}/filteredimage?image_url=https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_tabby_and_white_kitten_n01.jpg",
 							"protocol": "http",
 							"host": [
-								"udagram-image-filt-microservice-prod",
-								"ap-south-1",
-								"elasticbeanstalk",
-								"com"
+								"{{EB_URL}}"
 							],
 							"path": [
 								"filteredimage"
@@ -611,9 +587,14 @@
 	],
 	"variable": [
 		{
-			"id": "4c1c0784-0f51-4007-aa49-5b333690a98a",
+			"id": "86bf35a7-455f-42b0-a1bb-72c56f2e46d2",
 			"key": "HOST",
 			"value": "localhost:8082"
+		},
+		{
+			"id": "69caa609-8aec-421a-8228-83933bd209c1",
+			"key": "EB_URL",
+			"value": "udagram-image-filt-microservice-prod.ap-south-1.elasticbeanstalk.com"
 		}
 	],
 	"protocolProfileBehavior": {}

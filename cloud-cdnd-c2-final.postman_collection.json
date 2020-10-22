@@ -6,115 +6,585 @@
 	},
 	"item": [
 		{
-			"name": "http://localhost:8082/filteredimage?image_url=https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://{{HOST}}/filteredimage?image_url=https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_tabby_and_white_kitten_n01.jpg",
-					"protocol": "http",
-					"host": [
-						"{{HOST}}"
-					],
-					"path": [
-						"filteredimage"
-					],
-					"query": [
-						{
-							"key": "image_url",
-							"value": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_tabby_and_white_kitten_n01.jpg"
+			"name": "Local Development Server",
+			"item": [
+				{
+					"name": "Valid URL",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.ZW1haWxAZW1haWwuY29t.VXMNdtYKvcRkQgHicspZp95nGQhl9ifC1btruH_dlOI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{HOST}}/filteredimage?image_url=https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_tabby_and_white_kitten_n01.jpg",
+							"protocol": "http",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"filteredimage"
+							],
+							"query": [
+								{
+									"key": "image_url",
+									"value": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_tabby_and_white_kitten_n01.jpg"
+								}
+							]
 						}
-					]
+					},
+					"response": []
+				},
+				{
+					"name": "Another Valid URL",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.ZW1haWxAZW1haWwuY29t.VXMNdtYKvcRkQgHicspZp95nGQhl9ifC1btruH_dlOI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{HOST}}/filteredimage?image_url=https://images.unsplash.com/photo-1432298026442-0eabd0a98870",
+							"protocol": "http",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"filteredimage"
+							],
+							"query": [
+								{
+									"key": "image_url",
+									"value": "https://images.unsplash.com/photo-1432298026442-0eabd0a98870"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Root Endpoint",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.ZW1haWxAZW1haWwuY29t.VXMNdtYKvcRkQgHicspZp95nGQhl9ifC1btruH_dlOI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{HOST}}/",
+							"protocol": "http",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								""
+							]
+						},
+						"description": "The default endpoint url the server starts."
+					},
+					"response": []
+				},
+				{
+					"name": "Unreachable URL",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.ZW1haWxAZW1haWwuY29t.VXMNdtYKvcRkQgHicspZp95nGQhl9ifC1btruH_dlOI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{HOST}}/filteredimage?image_url=https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg",
+							"protocol": "http",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"filteredimage"
+							],
+							"query": [
+								{
+									"key": "image_url",
+									"value": "https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "No image_url supplied",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.ZW1haWxAZW1haWwuY29t.VXMNdtYKvcRkQgHicspZp95nGQhl9ifC1btruH_dlOI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{HOST}}/filteredimage",
+							"protocol": "http",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"filteredimage"
+							]
+						},
+						"description": "Endpoint which does not provide the required `image_url` query parameter"
+					},
+					"response": []
+				},
+				{
+					"name": "Invalid query parameter",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.ZW1haWxAZW1haWwuY29t.VXMNdtYKvcRkQgHicspZp95nGQhl9ifC1btruH_dlOI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{HOST}}/filteredimage?imageUrl=https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg",
+							"protocol": "http",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"filteredimage"
+							],
+							"query": [
+								{
+									"key": "imageUrl",
+									"value": "https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg"
+								}
+							]
+						},
+						"description": "Endpoint which does not provide the required `image_url` query parameter"
+					},
+					"response": []
+				},
+				{
+					"name": "No Authorization Header",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{HOST}}/filteredimage?image_url=https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_tabby_and_white_kitten_n01.jpg",
+							"protocol": "http",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"filteredimage"
+							],
+							"query": [
+								{
+									"key": "image_url",
+									"value": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_tabby_and_white_kitten_n01.jpg"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Invalid Authorization Token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "dyJhbGciOiJIUzI1NiJ9.ZW1haWxAZW1haWwuY29t.VXMNdtYKvcRkQgHicspZp95nGQhl9ifC1btryH_dlOI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{HOST}}/filteredimage?image_url=https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_tabby_and_white_kitten_n01.jpg",
+							"protocol": "http",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"filteredimage"
+							],
+							"query": [
+								{
+									"key": "image_url",
+									"value": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_tabby_and_white_kitten_n01.jpg"
+								}
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
-		},
-		{
-			"name": "Unreachable URL",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://{{HOST}}/filteredimage?image_url=https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg",
-					"protocol": "http",
-					"host": [
-						"{{HOST}}"
-					],
-					"path": [
-						"filteredimage"
-					],
-					"query": [
-						{
-							"key": "image_url",
-							"value": "https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg"
-						}
-					]
+			],
+			"description": "URL Endpoints for local development on Development Server http://localhost:8082",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "8ebb4822-5610-4de5-a10e-856f333f9e36",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "5217fe97-6548-4a22-84dd-781707d45f9d",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
 				}
-			},
-			"response": []
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "No image_url supplied",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://{{HOST}}/filteredimage",
-					"protocol": "http",
-					"host": [
-						"{{HOST}}"
-					],
-					"path": [
-						"filteredimage"
-					]
-				},
-				"description": "Endpoint which does not provide the required `image_url` query parameter"
-			},
-			"response": []
-		},
-		{
-			"name": "Invalid query parameter",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://{{HOST}}/filteredimage?imageUrl=https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg",
-					"protocol": "http",
-					"host": [
-						"{{HOST}}"
-					],
-					"path": [
-						"filteredimage"
-					],
-					"query": [
-						{
-							"key": "imageUrl",
-							"value": "https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg"
+			"name": "Elastic Beanstalk Production Server",
+			"item": [
+				{
+					"name": "Valid URL",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.ZW1haWxAZW1haWwuY29t.VXMNdtYKvcRkQgHicspZp95nGQhl9ifC1btruH_dlOI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://udagram-image-filt-microservice-prod.ap-south-1.elasticbeanstalk.com/filteredimage?image_url=https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_tabby_and_white_kitten_n01.jpg",
+							"protocol": "http",
+							"host": [
+								"udagram-image-filt-microservice-prod",
+								"ap-south-1",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"filteredimage"
+							],
+							"query": [
+								{
+									"key": "image_url",
+									"value": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_tabby_and_white_kitten_n01.jpg"
+								}
+							]
 						}
-					]
+					},
+					"response": []
 				},
-				"description": "Endpoint which does not provide the required `image_url` query parameter"
-			},
-			"response": []
-		},
-		{
-			"name": "Root Endpoint",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://{{HOST}}/",
-					"protocol": "http",
-					"host": [
-						"{{HOST}}"
-					],
-					"path": [
-						""
-					]
+				{
+					"name": "Another Valid URL",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.ZW1haWxAZW1haWwuY29t.VXMNdtYKvcRkQgHicspZp95nGQhl9ifC1btruH_dlOI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://udagram-image-filt-microservice-prod.ap-south-1.elasticbeanstalk.com/filteredimage?image_url=https://images.unsplash.com/photo-1536516677467-a8cf206e1066",
+							"protocol": "http",
+							"host": [
+								"udagram-image-filt-microservice-prod",
+								"ap-south-1",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"filteredimage"
+							],
+							"query": [
+								{
+									"key": "image_url",
+									"value": "https://images.unsplash.com/photo-1536516677467-a8cf206e1066"
+								}
+							]
+						}
+					},
+					"response": []
 				},
-				"description": "The default endpoint url the server starts."
-			},
-			"response": []
+				{
+					"name": "Root Endpoint",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://udagram-image-filt-microservice-prod.ap-south-1.elasticbeanstalk.com/",
+							"protocol": "http",
+							"host": [
+								"udagram-image-filt-microservice-prod",
+								"ap-south-1",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								""
+							]
+						},
+						"description": "The default endpoint url the server starts."
+					},
+					"response": []
+				},
+				{
+					"name": "Unreachable URL",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.ZW1haWxAZW1haWwuY29t.VXMNdtYKvcRkQgHicspZp95nGQhl9ifC1btruH_dlOI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://udagram-image-filt-microservice-prod.ap-south-1.elasticbeanstalk.com/filteredimage?image_url=https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg",
+							"protocol": "http",
+							"host": [
+								"udagram-image-filt-microservice-prod",
+								"ap-south-1",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"filteredimage"
+							],
+							"query": [
+								{
+									"key": "image_url",
+									"value": "https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "No image_url supplied",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.ZW1haWxAZW1haWwuY29t.VXMNdtYKvcRkQgHicspZp95nGQhl9ifC1btruH_dlOI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://udagram-image-filt-microservice-prod.ap-south-1.elasticbeanstalk.com/filteredimage",
+							"protocol": "http",
+							"host": [
+								"udagram-image-filt-microservice-prod",
+								"ap-south-1",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"filteredimage"
+							]
+						},
+						"description": "Endpoint which does not provide the required `image_url` query parameter"
+					},
+					"response": []
+				},
+				{
+					"name": "Invalid query parameter",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.ZW1haWxAZW1haWwuY29t.VXMNdtYKvcRkQgHicspZp95nGQhl9ifC1btruH_dlOI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://udagram-image-filt-microservice-prod.ap-south-1.elasticbeanstalk.com/filteredimage?imageUrl=https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg",
+							"protocol": "http",
+							"host": [
+								"udagram-image-filt-microservice-prod",
+								"ap-south-1",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"filteredimage"
+							],
+							"query": [
+								{
+									"key": "imageUrl",
+									"value": "https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg"
+								}
+							]
+						},
+						"description": "Endpoint which does not provide the required `image_url` query parameter"
+					},
+					"response": []
+				},
+				{
+					"name": "No Authorization Header",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://udagram-image-filt-microservice-prod.ap-south-1.elasticbeanstalk.com/filteredimage?image_url=https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_tabby_and_white_kitten_n01.jpg",
+							"protocol": "http",
+							"host": [
+								"udagram-image-filt-microservice-prod",
+								"ap-south-1",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"filteredimage"
+							],
+							"query": [
+								{
+									"key": "image_url",
+									"value": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_tabby_and_white_kitten_n01.jpg"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Invalid Athorization Token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "dyJhbGciOiJIUzI1NiJ9.ZW1haWxAZW1haWwuY29t.VXMNdtYKvcRkQgHicspZp95nGQhl9ifC1btryH_dlOI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://udagram-image-filt-microservice-prod.ap-south-1.elasticbeanstalk.com/filteredimage?image_url=https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_tabby_and_white_kitten_n01.jpg",
+							"protocol": "http",
+							"host": [
+								"udagram-image-filt-microservice-prod",
+								"ap-south-1",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"filteredimage"
+							],
+							"query": [
+								{
+									"key": "image_url",
+									"value": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_tabby_and_white_kitten_n01.jpg"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "URL Endpoints running on Elastic Beanstalk http://udagram-image-filt-microservice-prod.ap-south-1.elasticbeanstalk.com/",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "d958ec39-ba86-4318-99c2-a4d3ea259895",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "a85e5f1a-e5a0-48f5-8398-fee52cd48728",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"event": [
@@ -141,10 +611,9 @@
 	],
 	"variable": [
 		{
-			"id": "1df3d31a-de30-494b-a3d0-f1228dd8713c",
+			"id": "4c1c0784-0f51-4007-aa49-5b333690a98a",
 			"key": "HOST",
-			"value": "localhost:8082",
-			"type": "string"
+			"value": "localhost:8082"
 		}
 	],
 	"protocolProfileBehavior": {}

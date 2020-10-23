@@ -9,7 +9,7 @@
 			"name": "Local Development Server",
 			"item": [
 				{
-					"name": "Valid URL",
+					"name": "Image filtering - Valid URL",
 					"event": [
 						{
 							"listen": "test",
@@ -66,7 +66,7 @@
 					"response": []
 				},
 				{
-					"name": "Another Valid URL",
+					"name": "Image filtering  - Another Valid URL",
 					"event": [
 						{
 							"listen": "test",
@@ -444,7 +444,7 @@
 			"name": "Elastic Beanstalk Production Server",
 			"item": [
 				{
-					"name": "Valid URL",
+					"name": "Image Filtering - Valid URL",
 					"event": [
 						{
 							"listen": "test",
@@ -500,7 +500,7 @@
 					"response": []
 				},
 				{
-					"name": "Another Valid URL",
+					"name": "Image Filtering - Another Valid URL",
 					"event": [
 						{
 							"listen": "test",
@@ -886,12 +886,12 @@
 	],
 	"variable": [
 		{
-			"id": "b2c5c3b3-e730-43e9-8081-ff573f26118c",
+			"id": "357d826d-0b78-490c-a778-295ed32a31d2",
 			"key": "HOST",
 			"value": "localhost:8082"
 		},
 		{
-			"id": "89b9ec12-eca2-4231-8153-45b6ab66d3e6",
+			"id": "40572a5f-7abd-4c55-b864-05d5d96b44ad",
 			"key": "EB_URL",
 			"value": "udagram-image-filt-microservice-prod.ap-south-1.elasticbeanstalk.com"
 		}

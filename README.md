@@ -1,48 +1,49 @@
 # Udagram Image Filtering Microservice
 
-Udagram is a simple cloud application developed alongside the Udacity Cloud Engineering Nanodegree. It allows users to register and log into a web client, post photos to the feed, and process photos using an image filtering microservice.
+This is a simple cloud application developed alongside the Udacity Cloud Developer Nanodegree. It allows users to process photos using an image filtering microservice.
+It is a Node-Express application which runs a simple script to process images.
 
-The project is split into three parts:
-1. [The Simple Frontend](https://github.com/udacity/cloud-developer/tree/master/course-02/exercises/udacity-c2-frontend)
-A basic Ionic client web application which consumes the RestAPI Backend. [Covered in the course]
-2. [The RestAPI Backend](https://github.com/udacity/cloud-developer/tree/master/course-02/exercises/udacity-c2-restapi), a Node-Express server which can be deployed to a cloud service. [Covered in the course]
-3. [The Image Filtering Microservice](https://github.com/udacity/cloud-developer/tree/master/course-02/project/image-filter-starter-code), the final project for the course. It is a Node-Express application which runs a simple script to process images. [Your assignment]
+## Project Details
 
-## Tasks
+### Engineering Process and Quality
 
-### Setup Node Environment
+* The project demonstrates an understanding of a good cloud git process
 
-You'll need to create a new node server. Open a new terminal within the project directory and run:
+All project code is stored in a GitHub repository. There are two branches - one for development (dev, development) and one master. 
 
-1. Initialize a new project: `npm i`
-2. run the development server with `npm run dev`
+* The project demonstrates an ability to use typescript and Nodejs
 
-### Create a new endpoint in the server.ts file
+Any variables use typescript typing wherever possible, variable and function names are clear, endpoints are logically named. Good coding practices are followed.
 
-The starter code has a task for you to complete an endpoint in `./src/server.ts` which uses query parameter to download an image from a public URL, filter the image, and return the result.
+### Development Server
 
-We've included a few helper functions to handle some of these concepts and we're importing it for you at the top of the `./src/server.ts`  file.
+* The project demonstrates the ability to develop using the NodeJS framework
 
-```typescript
-import {filterImageFromURL, deleteLocalFiles} from './util/util';
-```
+Open a new terminal within the project directory and run:
+  1. Initialize a new project: `npm i`
+  2. run the development server with `npm run dev`
 
-### Deploying your system
+* The project demonstrates an understanding of RESTFUL design
 
-Follow the process described in the course to `eb init` a new application and `eb create` a new environment to deploy your image-filter service! Don't forget you can use `eb deploy` to push changes.
+The image filtering microservice is available at http://localhost:{{PORT}}/filteredimage?image_url=<url_to_image>
 
-## Stand Out (Optional)
+Example: http://localhost:{{PORT}}/filteredimage?image_url=https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_tabby_and_white_kitten_n01.jpg
 
-### Refactor the course RESTapi
+* The project demonstrates an understanding of HTTP status codes
 
-If you're feeling up to it, refactor the course RESTapi to make a request to your newly provisioned image server.
+Successful responses have a 200 code, at least one error code for caught errors (i.e. 422)
 
-### Authentication
+### AWS Elastic Beanstalk Deployment
 
-Prevent requests without valid authentication headers.
-> !!NOTE if you choose to submit this, make sure to add the token to the postman collection and export the postman collection file to your submission so we can review!
+* The project demonstrates the ability to create functional cloud deployments
 
-### Custom Domain Name
+Endpoint URL: http://udagram-image-filt-microservice-prod.ap-south-1.elasticbeanstalk.com/
 
-Add your own domain name and have it point to the running services (try adding a subdomain name to point to the processing server)
-> !NOTE: Domain names are not included in AWS’ free tier and will incur a cost.
+Example: http://udagram-image-filt-microservice-prod.ap-south-1.elasticbeanstalk.com/filteredimage?image_url=https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_tabby_and_white_kitten_n01.jpg
+
+Requires: Authorization Header with Bearer Token. Token is included in the Postman collection in the project directory.
+
+* The project demonstrates an understanding of AWS Elastic Beanstalk’s CLI and Console Dashboard
+
+The project was deployed using the AWS Elastic Beanstalk CLI eb init, eb create, and eb deploy commands.
+A screenshot of the elastic beanstalk application dashboard is included in a deployment_screenshot directory.
